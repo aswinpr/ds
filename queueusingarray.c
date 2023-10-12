@@ -5,6 +5,7 @@ int queue[100],rear=-1,front=-1,choice,size,value,i;
 void enqueue();
 void dequeue();
 void display();
+void exit();
 void main() {
 	printf("enter the size of array:");
 	scanf("%d",&size);
@@ -21,6 +22,8 @@ void main() {
 									break;
 							case 3: display();
 									break;
+							case 4:exit();
+							        	break;
 							default: printf("invalid choice!");
 									break;
 
