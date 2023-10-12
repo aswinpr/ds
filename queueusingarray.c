@@ -54,12 +54,16 @@ void dequeue(){
 	}
 	else{
 	    if(front==rear){
+	        printf(" element %d is deleted",queue[front]);
 	        queue[front]=NULL;
 	        front=rear=-1;
+	        
 	    }
 	    else{
+	        printf(" element %d is deleted",queue[front]);
 	        queue[front]=NULL;
 	        front++;
+	        
 	    }
 	}
 }
