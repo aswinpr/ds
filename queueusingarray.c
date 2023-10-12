@@ -52,7 +52,7 @@ void enqueue(){
 	}
 }
 void dequeue(){
-	if(front==rear){
+	if(front==-1){
 		printf("queue underflow\n");
 	}
 	else{
