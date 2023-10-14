@@ -6,6 +6,8 @@ void enqueue();
 void dequeue();
 void display();
 void main() {
+	printf("CIRCULAR QUEUE");
+	
 	printf("enter the size of array:");
 	scanf("%d",&size);
 
@@ -49,11 +51,11 @@ void dequeue(){
 	}
 	else{
 	    if(front==rear){
-	        queue[front]=NULL;
+	        //queue[front]=NULL;
 	        front=rear=-1;
 	    }
 	    else{
-	        queue[front]=NULL;
+	        //queue[front]=NULL;
 	        front++;
 	    }
 	}
@@ -64,7 +66,7 @@ void display(){
     }
     else{
         printf("the entered elements are: \t");
-	    for(i=front;i<=rear;i++){
+	    for(i=0;i<=rear;i++){
 		    printf("%d \t",queue[i],"\n");
 	}
     }
