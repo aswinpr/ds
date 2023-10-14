@@ -31,34 +31,10 @@ void main() {
 
 }
 void enqueue(){
-	if(rear==size-1){
-		printf("queue overflow\n");
-	}
-	else{
-		if(front==-1){
-			printf("enter the element to be inserted: ");
-			scanf("%d",&value);
-			front++;
-			rear++;
-			queue[rear]=value;
-		}
-
-	}
+	
 }
 void dequeue(){
-	if(front==rear){
-		printf("queue underflow\n");
-	}
-	else{
-	    if(front==rear){
-	        //queue[front]=NULL;
-	        front=rear=-1;
-	    }
-	    else{
-	        //queue[front]=NULL;
-	        front++;
-	    }
-	}
+	
 }
 void display(){
     if(rear==-1){
