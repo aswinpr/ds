@@ -31,7 +31,7 @@ void main() {
 
 }
 void enqueue(){
-	if(rear==size-1){
+	if(front==0 && rear== size-1 || (rear+1)%size==front){
 		printf("queue overflow\n");
 	}
 	else if(front==-1){
