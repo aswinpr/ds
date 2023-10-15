@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 
 int queue[100],rear=-1,front=-1,choice,size,value,i;
@@ -6,8 +7,7 @@ void enqueue();
 void dequeue();
 void display();
 void main() {
-	printf("CIRCULAR QUEUE");
-	
+	printf("circular queue");
 	printf("enter the size of array:");
 	scanf("%d",&size);
 
@@ -31,10 +31,39 @@ void main() {
 
 }
 void enqueue(){
-	
+	if(rear==size-1){
+		printf("queue overflow\n");
+	}
+	else if(front==-1){
+			printf("enter the element to be inserted: ");
+			scanf("%d",&value);
+			front++;
+			rear++;
+			queue[rear]=value;
+	}
+	else{
+	    	printf("enter the element to be inserted: ");
+			scanf("%d",&value);
+			rear=rear+1%size;
+			queue[rear]=value;
+	}
 }
 void dequeue(){
-	
+	if(front==rear==-1){
+		printf("queue underflow\n");
+	}
+	else{
+	    if(front==rear){
+	        queue[front]=NULL;
+	        front=rear=-1;
+	         printf("the elememt is deleted");
+	    }
+	    else{
+	        queue[front]=NULL;
+	        front++;
+	         printf("the elememt is deleted");
+	    }
+	}
 }
 void display(){
     if(rear==-1){
@@ -42,8 +71,9 @@ void display(){
     }
     else{
         printf("the entered elements are: \t");
-	    for(i=0;i<=rear;i++){
+	    for(i=front;i<=rear;i++){
 		    printf("%d \t",queue[i],"\n");
 	}
     }
 }
+
