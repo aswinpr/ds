@@ -65,15 +65,26 @@ void dequeue(){
 	    }
 	}
 }
-void display(){
-    if(rear==-1){
+void display()
+{
+    if(rear==-1)
+    {
         printf("queue is empty !!!");
+        return;
     }
-    else{
+    if(rear == size-1)
+    {
         printf("the entered elements are: \t");
-	    for(i=front;i<=rear;i++){
+	    for(i=front;i<=rear;i++)
 		    printf("%d \t",queue[i],"\n");
 	}
-    }
+	else if(front > rear)
+	{
+	      printf("the entered elements are: \t");
+	      for(i = front; i<size;i++)
+	        printf("%d \t",queue[i],"\n");
+          for(i = 0; i<=rear;i++)
+	        printf("%d \t",queue[i],"\n");
+	}
 }
 
