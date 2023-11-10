@@ -52,4 +52,3 @@ for(k=0;k<d;k++)
 {
   printf("%d\t",c[k]);
 }
-}
