@@ -1,39 +1,48 @@
-#include <stdio.h>
+#include<stdio.h>
 int queue[100];
-int front = -1, rear = -1,choice,item,size;
+int size,choice,front=-1,rear=-1,value;
 
-int isFull() {
-    if ((front == 0 && rear == size - 1) || (front == rear + 1))
-        return 1;
-    else
+
+
+int isfull(){
+    if ((front == 0 && rear == size - 1) || (front == rear + 1)){
+         return 1;
+    }
+    else{
         return 0;
-}
-
-int isEmpty() {
-    if (front == -1)
-        return 1;
-    else
-        return 0;
-}
-
-void enqueue() {
-    if (isFull())
-        printf("Queue is full. Cannot enqueue.\n");
-    else {
-        printf("enter item : ");
-        scanf("%d",&item);
-        if (front == -1)
-            front = 0;
-        rear = (rear + 1) % size;
-        queue[rear] = item;
-        printf("Enqueued %d\n", item);
     }
 }
 
-void dequeue() {
-    if (isEmpty())
-        printf("Queue is empty. Cannot dequeue.\n");
-    else {
+
+
+int isempty(){
+    if(front==-1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+void enqueue(){
+    if(isfull()){
+        printf("queue is full");
+    }
+    else{
+        printf("enter item to insert : ");
+        scanf("%d",&value);
+        if (front == -1)
+            front = 0;
+        rear = (rear + 1) % size;
+        queue[rear] = value;
+        printf("Enqueued %d\n", value);
+    }
+}
+void dequeue(){
+    if(isempty()){
+        printf("queue is empty");
+    }
+    else{
         printf("Dequeued %d\n", queue[front]);
         if (front == rear)
             front = rear = -1;
@@ -42,10 +51,11 @@ void dequeue() {
     }
 }
 
-void display() {
+void display(){
     int i;
-    if (isEmpty())
+    if (isempty()){
         printf("Queue is empty.\n");
+    } 
     else {
         printf("Queue elements: ");
         for (i = front; i != rear; i = (i +1) % size)
@@ -55,11 +65,11 @@ void display() {
 }
 
 int main() {
-    printf("\nenter the size of the array: ");
+    printf("\nenter the size of the queue: ");
 	scanf("%d",&size);
     do
 	{
-		printf("\n\nEnter the operation to perform:\n1.enqueue\n2.dequeue\n3.display\n4.exit\nyour choice: ");
+		printf("\n\nEnter the operation to perform:\n1.enqueue\n2.dequeue\n3.display");
 		scanf("%d",&choice);
 		switch(choice)
 		{
@@ -78,16 +88,8 @@ int main() {
 					display();
 					break;
 				}
-			case 4:
-				{
-					printf("exiting\n");
-					break;
-				}
-			default:printf("\ninvalid input");
+			default:printf("\ninvalid choice!");
 		};
 	}while(choice!=4);
     return 0;
 }
-
-
- 
